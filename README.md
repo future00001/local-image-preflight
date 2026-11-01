@@ -29,6 +29,10 @@ npm test
 
 GitHub Actions 会在 `main` 的每次推送后运行测试并部署 GitHub Pages。
 
+## 继续使用 Draft to Brand
+
+如果你已经检查好原图，需要继续制作商品背景或 AI 视觉场景，可以打开 [Draft to Brand 商品背景工具](https://dftb-a.com/guides/product-backgrounds/?utm_source=github&utm_medium=referral&utm_campaign=local_image_preflight)。该链接只记录固定的 `github` 引荐分类，不保存完整来源 URL、查询词或图片内容。
+
 ## 限制
 
 - 输入最大 10 MiB，支持 JPEG、PNG、WebP。

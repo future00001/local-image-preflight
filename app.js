@@ -43,6 +43,9 @@ const copy = {
     warning: '裁切风险只按几何比例估算，不识别标签、主体或平台规则；请人工检查重要细节。',
     invalidSettings: '请检查输出尺寸、留白和比例设置。',
     privacy: '隐私：文件通过浏览器对象 URL 和 Canvas 处理，不发送到服务器。关闭页面后本地选择会清除。',
+    siteCtaTitle: '需要把商品图继续做成 AI 场景？',
+    siteCtaText: '先在本地检查原图，再到 Draft to Brand 继续制作商品背景与视觉场景。',
+    siteCta: '打开 Draft to Brand 商品视觉工具',
     language: 'English',
   },
   en: {
@@ -79,6 +82,9 @@ const copy = {
     warning: 'Crop risk is geometric only. It does not identify labels, subjects or platform rules; inspect important details yourself.',
     invalidSettings: 'Check the output size, margin and ratio settings.',
     privacy: 'Privacy: the file is processed with an object URL and Canvas in this browser. The selected file is cleared when you leave.',
+    siteCtaTitle: 'Need an AI scene after preparing the photo?',
+    siteCtaText: 'Preflight the source locally, then continue with Draft to Brand for product backgrounds and visual scenes.',
+    siteCta: 'Continue to Draft to Brand',
     language: '中文',
   },
 };
