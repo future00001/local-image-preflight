@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Check image dimensions and crop risk, then fit the complete photo into a new canvas locally in your browser.">
+    <title>本地图片预检 · Local Image Preflight</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell" id="app">
+      <header class="topbar">
+        <a class="brand" href="./">Local Image Preflight</a>
+        <button class="language" id="language-toggle" type="button">English</button>
+      </header>
+      <section class="hero">
+        <p class="eyebrow" data-copy="eyebrow">浏览器本地工具</p>
+        <h1 data-copy="title">检查图片，再导出下一步需要的版本。</h1>
+        <p class="intro" data-copy="intro">读取尺寸、比例和居中裁切风险；把完整照片放入指定画布并添加留白。图片只在当前浏览器处理，不上传、不登录、不调用 AI。</p>
+      </section>
+
+      <section class="workspace" aria-label="Local image preflight tool">
+        <div class="input-column">
+          <div class="drop-zone" id="drop-zone" data-dragging="false">
+            <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+            <div class="drop-icon" aria-hidden="true">＋</div>
+            <p class="drop-title" data-copy="drop">拖入 JPEG、PNG 或 WebP，或点击选择</p>
+            <p class="muted" data-copy="limits">输入上限 10 MiB；支持 JPEG、PNG、WebP。</p>
+            <button class="button primary" id="choose-button" type="button" data-copy="choose">选择图片</button>
+          </div>
+
+          <div class="controls" aria-label="Export settings">
+            <label><span data-copy="ratio">目标比例</span><select id="ratio">
+              <option value="square">1:1</option><option value="four-five">4:5</option><option value="three-four">3:4</option><option value="two-three">2:3</option><option value="four-three">4:3</option><option value="three-two">3:2</option><option value="wide">16:9</option>
+            </select></label>
+            <label><span data-copy="edge">长边像素</span><input id="long-edge" type="number" min="64" max="3000" step="1" value="1000"></label>
+            <label><span><span data-copy="padding">最小留白（每侧）</span> <output id="padding-value">10%</output></span><input id="padding" type="range" min="0" max="20" step="1" value="10"></label>
+            <label><span data-copy="background">留白颜色</span><input id="background" type="color" value="#ffffff"></label>
+            <label><span data-copy="format">导出格式</span><select id="format"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option></select></label>
+            <label class="check"><input id="enlarge" type="checkbox"><span><span data-copy="enlarge">允许放大较小图片</span><small data-copy="enlargeHelp">放大只会缩放现有像素，不会补回缺失细节。</small></span></label>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+          <p class="privacy" data-copy="privacy">隐私：文件通过浏览器对象 URL 和 Canvas 处理，不发送到服务器。关闭页面后本地选择会清除。</p>
+        </div>
+
+        <div class="preview-column">
+          <div class="preview-grid">
+            <figure class="preview-card"><figcaption data-copy="original">原图</figcaption><div class="canvas-frame"><canvas id="original-canvas" hidden></canvas><p id="original-empty" class="empty" data-copy="noPhoto">先选择一张图片，工具会在本地读取它。</p></div></figure>
+            <figure class="preview-card"><figcaption data-copy="result">导出预览</figcaption><div class="canvas-frame checker"><canvas id="result-canvas" hidden></canvas><p id="result-empty" class="empty" data-copy="noPhoto">先选择一张图片，工具会在本地读取它。</p></div></figure>
+          </div>
+          <p class="crop-note" id="crop-note" hidden></p>
+          <p class="warning" id="warning" hidden data-copy="warning">裁切风险只按几何比例估算，不识别标签、主体或平台规则；请人工检查重要细节。</p>
+          <dl class="metrics" id="metrics" hidden>
+            <div><dt data-copy="dimensions">尺寸</dt><dd id="metric-dimensions">—</dd></div>
+            <div><dt data-copy="fileSize">文件大小</dt><dd id="metric-size">—</dd></div>
+            <div><dt data-copy="aspect">原图比例</dt><dd id="metric-aspect">—</dd></div>
+            <div><dt data-copy="output">输出尺寸</dt><dd id="metric-output">—</dd></div>
+            <div><dt data-copy="outputScale">原图缩放</dt><dd id="metric-scale">—</dd></div>
+          </dl>
+          <div class="actions"><button class="button secondary" id="clear-button" type="button" disabled data-copy="clear">清除图片</button><button class="button primary" id="export-button" type="button" disabled data-copy="export">下载导出图片</button></div>
+        </div>
+      </section>
+      <footer><span>Local Image Preflight · prototype</span><span>All processing stays in your browser.</span></footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

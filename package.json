@@ -1,0 +1,11 @@
+{
+  "name": "local-image-preflight",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A browser-local image dimension, crop-risk and margin export tool.",
+  "scripts": {
+    "test": "node --test",
+    "serve": "python -m http.server 4173"
+  }
+}
