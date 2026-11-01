@@ -1,6 +1,8 @@
 # Local Image Preflight
 
-一个浏览器本地图片预检与导出工具原型，提取自 Draft to Brand 现有的图片尺寸工具能力。
+一个浏览器本地图片预检与导出工具，提取自 Draft to Brand 现有的图片尺寸工具能力。
+
+**在线使用：** <https://future00001.github.io/local-image-preflight/>
 
 ## 能做什么
 
@@ -25,6 +27,8 @@ python -m http.server 4173
 npm test
 ```
 
+GitHub Actions 会在 `main` 的每次推送后运行测试并部署 GitHub Pages。
+
 ## 限制
 
 - 输入最大 10 MiB，支持 JPEG、PNG、WebP。
@@ -33,6 +37,10 @@ npm test
 - 放大只缩放现有像素，不会补回缺失细节。
 - 导出副本可能丢失相机或 AI 来源元数据，请保留原图。
 
+## 隐私与许可证
+
+文件只通过浏览器对象 URL、Canvas 和本地 JavaScript 处理，不发送到服务器。MIT 许可证见 [`LICENSE`](./LICENSE)。
+
 ## 来源与状态
 
-核心计算逻辑对应主项目的 `src/lib/photo-export.ts`；交互能力参考 `src/components/PhotoCheck.tsx`、`src/components/PhotoExport.tsx` 和 `src/components/ProductImageResizerPage.astro`。本目录目前是 GitHub-ready 原型，尚未创建远程仓库、发布 GitHub Pages 或选择开源许可证。公开发布前需要由项目所有者确认许可证、品牌名称和最终仓库边界。
+核心计算逻辑对应主项目的 `src/lib/photo-export.ts`；交互能力参考 `src/components/PhotoCheck.tsx`、`src/components/PhotoExport.tsx` 和 `src/components/ProductImageResizerPage.astro`。独立仓库地址为 <https://github.com/future00001/local-image-preflight>，默认分支为 `main`。
