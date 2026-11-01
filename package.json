@@ -4,6 +4,14 @@
   "private": true,
   "type": "module",
   "description": "A browser-local image dimension, crop-risk and margin export tool.",
+  "homepage": "https://future00001.github.io/local-image-preflight/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/future00001/local-image-preflight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/future00001/local-image-preflight/issues"
+  },
   "scripts": {
     "test": "node --test",
     "serve": "python -m http.server 4173"
